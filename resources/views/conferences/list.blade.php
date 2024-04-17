@@ -5,6 +5,14 @@
 
         <div class="text-center mb-5">
             <h1>All conferences</h1>
+            @if (auth()->check() && auth()->user()->is_admin)
+                <div class="d-flex flex-column mx-2">
+                    <form method="GET" action={{ route('conferences/new') }}>
+                        @csrf
+                        <button type="submit" class="btn btn-primary w-10 m-0 mb-4">New</button>
+                    </form>
+                </div>
+            @endif
         </div>
 
         @if ($conferences->isEmpty())

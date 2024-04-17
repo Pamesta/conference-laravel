@@ -20,6 +20,11 @@ class ConferenceController extends Controller
         return view('conferences.edit', ['conference' => $conference]);
     }
 
+    public function showCreateForm()
+    {
+        return view('conferences.new');
+    }
+
     public function update($id, EditConferenceRequest $request)
     {
 
@@ -39,5 +44,17 @@ class ConferenceController extends Controller
         $conference = Conference::find($id);
         $conference->delete();
         return redirect()->route('conferences');
+    }
+
+    public function create(EditConferenceRequest $request)
+    {
+
+        $validated = $request->validated();
+
+        $conference = Conference::create($validated);
+
+        $request->session()->flash('status', 'Conference created');
+
+        return redirect()->route('conferences/edit', $conference->id);
     }
 }

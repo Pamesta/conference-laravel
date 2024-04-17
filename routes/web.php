@@ -15,4 +15,6 @@ Route::get('conferences', [ConferenceController::class, 'showList'])->name('conf
 Route::get('conferences/edit/{id}', [ConferenceController::class, 'showEditForm'])->name('conferences/edit')->middleware('auth', 'admin');
 Route::post('conferences/edit/{id}', [ConferenceController::class, 'update'])->name('conferences/edit')->middleware('auth', 'admin');
 Route::post('conferences/delete/{id}', [ConferenceController::class, 'delete'])->name('conferences/delete')->middleware('auth', 'admin');
+Route::get('conferences/new', [ConferenceController::class, 'showCreateForm'])->name('conferences/new')->middleware('auth', 'admin');
+Route::post('conferences/new', [ConferenceController::class, 'create'])->name('conferences/new')->middleware('auth', 'admin');
 
