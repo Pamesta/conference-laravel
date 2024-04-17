@@ -15,10 +15,12 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
-    @vite(['resources/assets/sass/app.scss', 'resources/assets/js/app.js'])
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 </head>
 
 <body>
+    <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
+
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
