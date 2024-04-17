@@ -4,7 +4,8 @@
     <div class="container">
 
         <div class="text-center mb-5">
-            <h1>All conferences</h1>
+            <h1>{{ __('conferences.all') }}</h1>
+
             @if (auth()->check() && auth()->user()->is_admin)
                 <div class="d-flex flex-column mx-2">
                     <form method="GET" action={{ route('conferences/new') }}>
@@ -16,7 +17,7 @@
         </div>
 
         @if ($conferences->isEmpty())
-            <p>No conferences found.</p>
+            <p>{{ __('conferences.empty') }}</p>
         @else
             <div class="list-group mx-auto w-50">
 
@@ -38,12 +39,14 @@
                             <div class="d-flex flex-column mx-2">
                                 <form method="GET" action={{ route('conferences/edit', $conference->id) }}>
                                     @csrf
-                                    <button type="submit" class="btn btn-primary w-100 m-0 mb-4">Edit</button>
+                                    <button type="submit"
+                                        class="btn btn-primary w-100 m-0 mb-4">{{ __('conferences.editButton') }}</button>
                                 </form>
 
                                 <form method="POST" action={{ route('conferences/delete', $conference->id) }}>
                                     @csrf
-                                    <button type="submit" class="btn btn-sm btn-danger m-2">Delete</button>
+                                    <button type="submit"
+                                        class="btn btn-sm btn-danger m-2">{{ __('conferences.deleteButton') }}</button>
                                 </form>
                             </div>
                         @endif

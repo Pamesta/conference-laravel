@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Edit conference') }}</div>
+                    <div class="card-header">{{ __('conferences.edit') }}</div>
 
                     @if (@session('status'))
                         <div class="mx-auto bg-success text-white px-3 w-100">
@@ -19,7 +19,7 @@
 
                             <div class="row mb-3">
                                 <label for="title"
-                                    class="col-md-2 col-form-label text-md-end">{{ __('Title') }}</label>
+                                    class="col-md-2 col-form-label text-md-end">{{ __('conferences.title') }}</label>
 
                                 <div class="col-md-10">
                                     <input id="title" type="text" class="form-control" name="title"
@@ -33,7 +33,7 @@
 
                             <div class="row mb-3">
                                 <label for="description"
-                                    class="col-md-2 col-form-label text-md-end">{{ __('Description') }}</label>
+                                    class="col-md-2 col-form-label text-md-end">{{ __('conferences.description') }}</label>
 
                                 <div class="col-md-10">
                                     <textarea id="description" type="text" class="form-control" name="description" rows="6">{{ old('description', $conference->description) }}</textarea>
@@ -46,7 +46,7 @@
 
                             <div class="row mb-3">
                                 <label for="date"
-                                    class="col-md-2 col-form-label text-md-end">{{ __('Date') }}</label>
+                                    class="col-md-2 col-form-label text-md-end">{{ __('conferences.date') }}</label>
 
                                 <div class="col-md-10">
                                     <input id="date" type="text" class="form-control" name="date"
@@ -60,7 +60,7 @@
 
                             <div class="row mb-3">
                                 <label for="adress"
-                                    class="col-md-2 col-form-label text-md-end">{{ __('Adress') }}</label>
+                                    class="col-md-2 col-form-label text-md-end">{{ __('conferences.adress') }}</label>
 
                                 <div class="col-md-10">
                                     <input id="adress" type="text" class="form-control" name="adress"
@@ -76,7 +76,7 @@
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-5">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Update') }}
+                                        {{ __('conferences.update') }}
                                     </button>
                                 </div>
                             </div>
