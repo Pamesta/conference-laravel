@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Conference;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -27,6 +28,27 @@ class DatabaseSeeder extends Seeder
             'is_admin' => 1,
             'email' => 'admin@example.com',
             'password' => Hash::make('password'),
+        ]);
+
+        Conference::factory()->create([
+            'title' => 'Conference title 1',
+            'description' => 'Conference description: a long description for this conferenting conference which describes how the conference conferences. See you soon!',
+            'date' => now(),
+            'adress' => 'Conference adress, conference st. 12'
+        ]);
+
+        Conference::factory()->create([
+            'title' => 'Conference title 2',
+            'description' => 'yer another long description for this conferenting conference which describes how the conference conferences',
+            'date' => now(),
+            'adress' => 'Good adress, conference st. 7'
+        ]);
+
+        Conference::factory()->create([
+            'title' => 'Conference title 3',
+            'description' => 'a lovely description describing the conference in which we will conference the conferencing',
+            'date' => now(),
+            'adress' => 'Evil adress, conference st. 13'
         ]);
     }
 }
