@@ -1,8 +1,7 @@
 {
-    "type": "module",
     "scripts": {
         "dev": "npm run development",
-        "development": "vite",
+        "development": "mix",
         "build": "vite build",
         "watch": "mix watch",
         "watch-poll": "mix watch -- --watch-options-poll=1000",
@@ -11,11 +10,13 @@
         "production": "mix --production"
     },
     "devDependencies": {
+        "@popperjs/core": "^2.11.6",
         "axios": "^0.21",
+        "bootstrap": "^5.2.3",
         "laravel-mix": "^6.0.6",
         "laravel-vite-plugin": "^1.0.2",
         "resolve-url-loader": "^5.0.0",
-        "sass": "^1.75.0",
+        "sass": "^1.56.1",
         "sass-loader": "^12.1.0",
         "vite": "^5.2.9"
     },
