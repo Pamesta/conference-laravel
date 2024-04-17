@@ -12,9 +12,12 @@ Route::post('login', [LoginController::class, 'login'])->name('login');
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('conferences', [ConferenceController::class, 'showList'])->name('conferences');
-Route::get('conferences/edit/{id}', [ConferenceController::class, 'showEditForm'])->name('conferences/edit')->middleware('auth', 'admin');
-Route::post('conferences/edit/{id}', [ConferenceController::class, 'update'])->name('conferences/edit')->middleware('auth', 'admin');
-Route::post('conferences/delete/{id}', [ConferenceController::class, 'delete'])->name('conferences/delete')->middleware('auth', 'admin');
-Route::get('conferences/new', [ConferenceController::class, 'showCreateForm'])->name('conferences/new')->middleware('auth', 'admin');
-Route::post('conferences/new', [ConferenceController::class, 'create'])->name('conferences/new')->middleware('auth', 'admin');
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('conferences/edit/{id}', [ConferenceController::class, 'showEditForm'])->name('conferences/edit');
+    Route::post('conferences/edit/{id}', [ConferenceController::class, 'update'])->name('conferences/edit');
+    Route::post('conferences/delete/{id}', [ConferenceController::class, 'delete'])->name('conferences/delete');
+    Route::get('conferences/new', [ConferenceController::class, 'showCreateForm'])->name('conferences/new');
+    Route::post('conferences/new', [ConferenceController::class, 'create'])->name('conferences/new');
+});
 
