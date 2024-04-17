@@ -14,7 +14,7 @@
 
                 @foreach ($conferences as $conference)
                     <div class="d-flex">
-                        <div class="list-group-item border mb-3">
+                        <div class="list-group-item border mb-3 flex-grow-1">
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 class="mb-1">{{ $conference->title }}</h5>
                                 <small><strong>{{ $conference->date->format('Y-m-d H:i') }}</strong></small>
@@ -28,8 +28,15 @@
                         {{-- edit and delete buttons if admin --}}
                         @if (auth()->check() && auth()->user()->is_admin)
                             <div class="d-flex flex-column mx-2">
-                                <button class="btn btn-primary w-100 m-0 mb-4">Edit</button>
-                                <button class="btn btn-sm btn-danger m-2">Delete</button>
+                                <form method="GET" action={{ route('conferences/edit', $conference->id) }}>
+                                    @csrf
+                                    <button type="submit" class="btn btn-primary w-100 m-0 mb-4">Edit</button>
+                                </form>
+
+                                <form method="POST" action={{ route('conferences/delete', $conference->id) }}>
+                                    @csrf
+                                    <button type="submit" class="btn btn-sm btn-danger m-2">Delete</button>
+                                </form>
                             </div>
                         @endif
                     </div>
